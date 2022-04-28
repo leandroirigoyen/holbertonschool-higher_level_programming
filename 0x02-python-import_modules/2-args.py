@@ -9,5 +9,5 @@ else:
     print("{} arguments:".format(largo - 1))
 
 if len(sys.argv) > 1:
-    for c in range(1,largo):
+    for c in range(1, largo):
         print("{}: {}".format(c, sys.argv[c]))
