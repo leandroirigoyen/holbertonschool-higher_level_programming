@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-        if idx < 0:
-            return my_list
-        elif idx > len(my_list):
-            return my_list
-        else:
-            print("{}".format(my_list.insert(element, my_list[idx])))
+    cplist = my_list[:]
+    if idx >= 0 and idx < len(my_list):
+        cplist[idx] = element
+    return cplist
