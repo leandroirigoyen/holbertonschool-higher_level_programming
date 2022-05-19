@@ -1,63 +1,63 @@
 #!/usr/bin/python3
-"""
-defines a rectangle
-"""
+"""This module creates a class named Rectangle"""
 
 
 class Rectangle:
-    """rectangle class"""
+    """A class named Rectangle
+    Attributes:
+    attr1(width): width of rectangle
+    attr2(height): height of rectangle
+    """
     def __init__(self, width=0, height=0):
-        """instantiation"""
-        self.__width = width
-        self.__height = height
-
-    @property
-    def width(self):
-        """retrieve width"""
-        return self.__width
-
-    @width.setter
-    def width(self, value):
-        """sets width"""
-        self.__width = value
-        try:
-            assert type(self.__width) == int
-        except:
-            raise TypeError("width must be an integer")
-        if self.__width < 0:
-            raise ValueError("width must be >= 0")
+        self.width = width
+        self.height = height
 
     @property
     def height(self):
-        """retrieve height"""
+        """Gets the height of the class instance"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """sets height"""
-        self.__height = value
-        try:
-            assert type(self.__height) == int
-        except:
+        """Sets the height of the class instance"""
+        if type(value) != int:
+            raise TypeError("height must be an integer")
+        if value < 0:
             raise ValueError("height must be >= 0")
+        self.__height = value
+
+    @property
+    def width(self):
+        """Gets the width of the class instance"""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """Sets the width of the class instance"""
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
     def area(self):
-        """returns the area"""
+        """Returns the area of the class instance"""
         return self.__width * self.__height
 
     def perimeter(self):
-        """returns the perimeter"""
-        if self.__height == 0 or self.__width == 0:
+        """Returns the permimeter of the class instance"""
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return self.__width * 2 + self.__height * 2
+        return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
-        """print rectangle using #"""
-        if self.__height == 0 or self.__width == 0:
-            return ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
-            if i != self.__height - 1:
-                print()
-        return ""
+        """Returns the string representation of the class instance"""
+        stringrep = ""
+        if self.__width == 0 or self.__height == 0:
+            return stringrep
+        for row in range(self.__height):
+            for column in range(self.__width):
+                stringrep += "#"
+            if row < self.__height - 1:
+                stringrep += "\n"
+        return stringrep
