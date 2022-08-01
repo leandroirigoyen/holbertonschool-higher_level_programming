@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const x = 'C is fun\n';
-const y = 'Python is cool\n';
-const z = 'JavaScript is amazing\n';
-console.log(x,y,z);
+let str = `C is fun
+Python is cool
+JavaScript is amazing`;
+console.log(str);
