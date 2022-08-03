@@ -1,16 +1,14 @@
 #!/usr/bin/node
-const OldSquare = require('./5-square');
 
-module.exports = class Square extends OldSquare {
-  constructor (size) {
-    super(size, size);
-  }
+const SquareBase = require('./5-square');
 
-  double () {
-    super.double();
+class Square extends SquareBase {
+  charPrint (c) {
+    if (c === undefined) {
+      c = 'X';
+    }
+    process.stdout.write((c.repeat(this.width) + '\n').repeat(this.height));
   }
+}
 
-  charPrint (c = 'X') {
-    super.print(c);
-  }
-};
+module.exports = Square;
